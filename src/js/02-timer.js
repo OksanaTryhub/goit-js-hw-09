@@ -65,8 +65,8 @@ class Timer {
         const currentTime = Date.now();
         const deltaMs = selectedTime - currentTime;
         const timerElements = convertMs(deltaMs);
-        this.updateTimerElements(timerElements);
-
+            this.updateTimerElements(timerElements);
+        
         if (deltaMs <= 0) {
             this.stopTimer();
             Notiflix.Notify.success('Time is up! You have reached your goal!');
@@ -75,14 +75,18 @@ class Timer {
     }
 
     updateTimerElements({ days, hours, minutes, seconds }) {
-        refs.days.textContent = days;
-        refs.hours.textContent = hours;
-        refs.minutes.textContent = minutes;
-        refs.seconds.textContent = seconds;
+      refs.days.textContent = days;
+      refs.hours.textContent = hours;
+      refs.minutes.textContent = minutes;
+      refs.seconds.textContent = seconds;
     }
 
     stopTimer() {
-        clearInterval(this.timerID);
+      clearInterval(this.timerID);
+      refs.days.textContent = '00';
+      refs.hours.textContent = '00';
+      refs.minutes.textContent = '00';
+      refs.seconds.textContent = '00';
     }
 }
 
